@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/addVariablesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:onClick="openSecondActivity"
+        android:text="Add Variables"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupOfButtons" />
+
+    <EditText
+        android:id="@+id/IpAddressEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:digits="0123456789."
+        android:hint="@string/ip_address_hint"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/IpAddressViewText"
+        app:layout_constraintStart_toStartOf="@+id/IpAddressViewText"
+        app:layout_constraintTop_toBottomOf="@+id/IpAddressViewText" />
+
+    <TextView
+        android:id="@+id/AppIpViewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="App Device IP :"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/appWifiIpViewText"
+        app:layout_constraintEnd_toEndOf="@+id/appWifiIpViewText"
+        app:layout_constraintStart_toStartOf="@+id/appWifiIpViewText" />
+
+    <TextView
+        android:id="@+id/appWifiIpViewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="@+id/IpAddressViewText"
+        app:layout_constraintStart_toStartOf="@+id/IpAddressViewText" />
+
+    <TextView
+        android:id="@+id/IpAddressViewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/type_ip"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <TextView
+        android:id="@+id/cpuModelViewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/mark_model"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/IpAddressEditText"
+        app:layout_constraintStart_toStartOf="@+id/IpAddressEditText"
+        app:layout_constraintTop_toBottomOf="@+id/IpAddressEditText" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupOfButtons"
+        android:checkedButton="@+id/s7_1500RadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/IpAddressEditText"
+        app:layout_constraintEnd_toEndOf="@+id/cpuModelViewText"
+        app:layout_constraintStart_toStartOf="@+id/cpuModelViewText"
+        app:layout_constraintTop_toBottomOf="@+id/cpuModelViewText">
+
+        <RadioButton
+            android:id="@+id/s7_300RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/S7_300" />
+
+        <RadioButton
+            android:id="@+id/s7_400RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/S7_400" />
+
+        <RadioButton
+            android:id="@+id/winAcRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/WinAC" />
+
+        <RadioButton
+            android:id="@+id/s7_1200RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/S7_1200" />
+
+        <RadioButton
+            android:id="@+id/s7_1500RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/S7_1500" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/rackViewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rack"
+        android:textSize="15dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/radioGroupOfButtons"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+    <Spinner
+        android:id="@+id/rackSpinner"
+        android:layout_width="75dp"
+        android:layout_height="27dp"
+        android:layout_centerInParent="true"
+        android:dropDownWidth="50dp"
+        android:entries="@array/rack"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/rackViewText"
+        app:layout_constraintStart_toStartOf="@+id/rackViewText"
+        app:layout_constraintTop_toBottomOf="@+id/rackViewText" />
+
+    <TextView
+        android:id="@+id/slotViewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/slot"
+        android:textSize="15dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/rackSpinner"
+        app:layout_constraintStart_toStartOf="@+id/rackSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/rackSpinner" />
+
+    <Spinner
+        android:id="@+id/slotSpinner"
+        android:layout_width="75dp"
+        android:layout_height="27dp"
+        android:layout_centerInParent="true"
+        android:dropDownWidth="50dp"
+        android:entries="@array/slot"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/slotViewText"
+        app:layout_constraintStart_toStartOf="@+id/slotViewText"
+        app:layout_constraintTop_toBottomOf="@+id/slotViewText" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="100dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="100dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="239dp" />
+
+    <Button
+        android:id="@+id/pingButton"
+        android:layout_width="66dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/pingButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/IpAddressEditText"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+
+    <ImageView
+        android:id="@+id/pingStatusImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/IpAddressEditText"
+        app:layout_constraintTop_toBottomOf="@+id/IpAddressViewText" />
+
+    <ProgressBar
+
+        android:id="@+id/pingProgressBar"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/IpAddressEditText"
+        app:layout_constraintTop_toBottomOf="@+id/IpAddressViewText" />
+
+
+
+</android.support.constraint.ConstraintLayout>
